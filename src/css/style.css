@@ -1,0 +1,581 @@
+@import url('https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&family=Smooch+Sans:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Boldonse&family=Bungee+Tint&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Funnel Display', sans-serif;
+}
+
+.app {
+    max-width: 1900px;
+    margin: 0 auto;
+
+}
+
+
+.app header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(0, 0, 0);
+}
+
+.app header p {
+    font-family: 'Bungee Tint';
+    font-size: 30px;
+
+}
+
+.app section.topButtons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.app section.topButtons button {
+    color: white;
+    background-color: black;
+    border: 1px solid transparent;
+    border-radius: 14px;
+    padding: 10px;
+    font-family: 'Funnel Display';
+    margin: 5px 2px 0 5px;
+    cursor: pointer;
+}
+
+.app section.topButtons button:hover {
+    background-color: gray;
+}
+
+
+footer.footer {
+    font-family: 'Funnel Display';
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: row;
+
+
+    width: 100%;
+    max-width: 1900px;
+    margin: 10px auto 0 auto;
+}
+
+footer.footer .footer__shopdata, footer.footer .footer__sites, footer.footer .footer__categories {
+    flex-basis: 33%;
+}
+
+
+
+footer.footer .footer__sites ul, footer.footer .footer__categories ul {
+    list-style: none;
+}
+
+footer.footer .footer__sites ul a, footer.footer .footer__categories ul a {
+    text-decoration: none;
+    cursor: pointer;
+    background-color: rgb(54, 16, 148);
+    color: white;
+    display: inline-block;
+    border: 1px solid transparent;
+    border-radius: 7px;
+    margin-top: 5px;
+    padding: 5px;
+
+}
+
+footer.footer .footer__shopdata {
+    padding-left: 5px;
+    padding-bottom: 10px;
+}
+
+
+@media (max-width: 500px) {
+    footer.footer {
+        flex-direction: column;
+        margin-top: 10px;
+    }
+
+    footer.footer .footer__shopdata, footer.footer .footer__categories, footer.footer .footer__sites {
+        margin-left: 10px;
+        padding: 5px;
+    }
+
+}
+
+.app form {
+    margin-left: 5px;
+}
+
+.app form label {
+    font-size: 20px;
+    font-family: 'Funnel Display';
+    display: block;
+}
+
+.app form input {
+    font-size: 20px;
+    font-family: 'Funnel Display';
+    display: block;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+.app form button {
+    color: white;
+    background-color: black;
+    border: 1px solid transparent;
+    border-radius: 14px;
+    padding: 10px;
+    font-family: 'Funnel Display';
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.app form button:hover {
+    background-color: gray;
+}
+
+
+
+.app .adminMenu {
+    background-color: rgb(171, 73, 73);
+    padding: 5px;
+    margin-top: 10px;
+}
+
+.app .adminMenu nav ul {
+    text-align: center;
+}
+
+.app .adminMenu nav ul li {}
+
+.app .adminMenu nav ul li a {
+    color: white;
+    background-color: black;
+    text-decoration: none;
+    margin-top: 5px;
+    display: inline-block;
+    padding: 5px;
+    border-radius: 7px;
+    width: 30%;
+}
+
+.app .adminMenu nav ul li a:hover {
+    background-color: gray;
+    width: 28%;
+}
+
+@media (max-width: 500px) {
+
+    .app .adminMenu nav ul li a {
+        width: 90%;
+    }
+
+    .app .adminMenu nav ul li a:hover {
+
+        width: 80%;
+    }
+
+    input {
+        width: 95%;
+    }
+}
+
+.info {
+    background-color: green;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button.returnToMainSite {
+    color: white;
+    background-color: rgb(54, 16, 148);
+    font-family: 'Funnel Display';
+    border: 1px solid transparent;
+    border-radius: 4px;
+    font-size: 20px;
+    padding: 5px;
+    display: block;
+    margin-top: 5px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.shopData {
+    padding: 5px;
+}
+
+button.editShopData, button.save, button.removeCustomer {
+    color: white;
+    background-color: black;
+    border: 1px solid transparent;
+    border-radius: 14px;
+    padding: 10px;
+    font-family: 'Funnel Display';
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+button.editShopData:hover, button.save:hover, button.removeCustomer:hover {
+    background-color: gray;
+}
+
+span.property {
+    font-weight: bold;
+}
+
+form.setNewAccount {
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+}
+
+@media(max-width: 600px) {
+    form.setNewAccount {
+        flex-direction: column;
+    }
+}
+
+span.additionalInfo {
+    color: gray;
+    font-size: 8px;
+    display: block;
+}
+
+.customersProfiles {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.customerProfile {
+    color: black;
+    flex-basis: 33%;
+    padding: 5px;
+    border: 2px dotted red;
+    border-radius: 7px;
+}
+
+@media(max-width: 500px) {
+    .customersProfiles {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .customerProfile {
+        width: 90%;
+    }
+
+}
+
+.productCategoriesList {
+    list-style: circle;
+}
+
+.productCategoriesAdd {
+    margin-top: 10px;
+}
+
+.productCategoriesList button {
+    color: white;
+    background-color: black;
+    border: 1px solid transparent;
+    border-radius: 14px;
+    padding: 10px;
+    font-family: 'Funnel Display';
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.productCategoriesList button:hover {
+    background-color: gray;
+}
+
+
+form select {
+    display: block;
+    font-size: 20px;
+    font-family: 'Funnel Display';
+    display: block;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+
+.productsList {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 10px;
+    padding: 5px;
+}
+
+.singleProduct {
+    flex-basis: 33%;
+    border: 2px dotted red;
+    border-radius: 7px;
+
+}
+
+.singleProduct button {
+    color: white;
+    background-color: black;
+    border: 1px solid transparent;
+    border-radius: 14px;
+    padding: 10px;
+    font-family: 'Funnel Display';
+    margin-top: 5px;
+    cursor: pointer;
+    margin-left: 5px;
+    margin-bottom: 10px;
+}
+
+.singleProduct button:hover {
+    background-color: gray;
+}
+
+.singleProduct img {
+    width: 50%;
+    height: auto;
+    display: block;
+}
+
+@media (max-width: 600px) {
+    .singleProduct {
+        flex-basis: 100%;
+
+
+    }
+}
+
+span.warning {
+    color: red;
+}
+
+
+.productsPresentationList {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+}
+
+.productCard {
+    flex-basis: 33%;
+}
+
+.productCard img {
+    width: 100%;
+    height: auto;
+}
+
+
+
+.productCard h6.productPrice {
+    font-size: 24px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+span.available {
+    background-color: green;
+    color: white;
+    padding: 5px;
+    border-radius: 7px;
+    margin-top: 5px;
+
+}
+
+span.outOfStock {
+    background-color: red;
+    color: white;
+    padding: 5px;
+    border-radius: 7px;
+    margin-top: 5px;
+
+}
+
+.productCard button {
+    margin-top: 10px;
+}
+
+
+.productCard button.buyNow {
+    background-color: black;
+    color: white;
+    font-size: 24px;
+    border: none;
+    font-family: 'Funnel Display';
+    padding: 5px;
+    cursor: pointer;
+    margin-left: 5px;
+
+}
+
+.productCard button.buyNow:hover {
+    background-color: grey;
+}
+
+.productCard button.addToFavourites {
+    background-color: rgb(54, 16, 148);
+    color: white;
+    font-size: 24px;
+    border: none;
+    font-family: 'Funnel Display';
+    padding: 5px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.productCard button.addToFavourites:hover {
+    background-color: grey;
+}
+
+.mainMenu {
+    background-color: rgb(224, 213, 213);
+
+}
+
+.mainMenu button {
+    background-color: transparent;
+    color: black;
+    border: none;
+    font-family: 'Funnel Display';
+    font-size: 26px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.mainMenu a {
+    background-color: transparent;
+    color: black;
+    border: none;
+    font-family: 'Funnel Display';
+    font-size: 26px;
+    cursor: pointer;
+    margin-left: 10px;
+    text-decoration: none;
+
+}
+
+.mainMenu button:hover {
+    font-weight: bold;
+}
+
+.mainMenu a:hover {
+    font-weight: bold;
+}
+
+@media (max-width: 600px) {
+    .productCard {
+        flex-basis: 100%;
+    }
+
+    .productCard button.buyNow, .productCard button.addToFavourites {
+        display: block;
+    }
+
+    .mainMenu button {
+        display: block;
+    }
+
+    .mainMenu a {
+        display: block;
+    }
+}
+
+.header_title a {
+    text-decoration: none;
+}
+
+.footer__categories nav ul li button {
+    text-decoration: none;
+    cursor: pointer;
+    background-color: rgb(54, 16, 148);
+    color: white;
+    display: inline-block;
+    border: 1px solid transparent;
+    border-radius: 7px;
+    margin-top: 5px;
+    padding: 5px;
+    font-size: 16px;
+    font-family: 'Funnel Display';
+}
+
+
+.sites {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    gap: 5px;
+    padding: 5px;
+}
+
+.sites .singleSite {
+    color: black;
+    padding: 5px;
+    border: 2px dotted red;
+    border-radius: 7px;
+}
+
+.sites .singleSite button {
+    color: white;
+    background-color: black;
+    border: 1px solid transparent;
+    border-radius: 14px;
+    padding: 10px;
+    font-family: 'Funnel Display';
+    margin-top: 5px;
+    cursor: pointer;
+    margin-left: 5px;
+    margin-bottom: 10px;
+}
+
+.sites .singleSite button:hover {
+    background-color: grey;
+}
+
+h1.sites {
+    margin-top: 0px;
+}
+
+.footer__sites nav {
+    margin-top: 0px;
+}
+
+button.createNewAccount {
+    color: white;
+    background-color: black;
+    border: 1px solid transparent;
+    border-radius: 14px;
+    padding: 10px;
+    font-family: 'Funnel Display';
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+button.createNewAccount:hover {
+    background-color: grey;
+}
+
+.logInUser {
+    background-color: rgb(224, 213, 213);
+    margin-top: 3px;
+    padding-bottom: 5px;
+}
+
+button.createNewAccount {
+    margin-left: 5px;
+}
