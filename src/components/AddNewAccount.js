@@ -35,6 +35,7 @@ const AddNewAccount = () => {
     const [customers, setCustomers] = useState([])
 
     const [favourites, setFavourites] = useState([])
+    const [baskets, setBaskets] = useState([])
 
 
   
@@ -93,6 +94,7 @@ const handleSubmit = (e) => {
 
     const favourites = []
     const user = login
+    const boughtProducts = []
 
     console.log(user)
     console.log(favourites)
@@ -103,6 +105,14 @@ const handleSubmit = (e) => {
             console.error('Error adding favourites', err)
             alert('uuups ... coś poszło nie tak!')
         })
+
+
+        axios.post('http://localhost:5000/baskets', {user, boughtProducts})
+        .then((response => setBaskets([...baskets, response.data])))
+        .catch(err => {
+                console.error('Error adding baskets', err)
+                alert('uuups ... coś poszło nie tak!')
+            })
   
     
 

@@ -18,6 +18,10 @@ import AddNewAccount from './AddNewAccount';
 import SingleSite from './SingleSite'
 import LogInUser from './LogInUser'
 import Favourites from './Favourites';
+import Basket from './Basket'
+import OrderCompleted from './OrderCompleted'
+import MyOrders from './MyOrders';
+import Invoice from './Invoice'
 
 
 
@@ -41,6 +45,10 @@ const App = () => {
         <Route path="/new-account" element={<AddNewAccount/>} />
         <Route path="/site" element={<SingleSite/>} />
         <Route path="/favourites" element={<Favourites/>} />
+        <Route path="/basket" element={<Basket/>}/>
+        <Route path="/order-completed" element={<OrderCompleted/>}/>
+        <Route path="/my-orders" element={<MyOrders/>}/>
+        <Route path="/invoice" element={<Invoice/>}/>
        
 
        </Routes>

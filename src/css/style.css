@@ -555,7 +555,7 @@ h1.sites {
     margin-top: 0px;
 }
 
-button.createNewAccount {
+button.createNewAccount, button.returnToInvoicesList {
     color: white;
     background-color: black;
     border: 1px solid transparent;
@@ -566,7 +566,7 @@ button.createNewAccount {
     cursor: pointer;
 }
 
-button.createNewAccount:hover {
+button.createNewAccount:hover, button.returnToInvoicesList:hover {
     background-color: grey;
 }
 
@@ -578,4 +578,282 @@ button.createNewAccount:hover {
 
 button.createNewAccount {
     margin-left: 5px;
+}
+
+header.header {
+    position: relative;
+}
+
+.basketWidget {
+    background-color: rgb(171, 73, 73);
+    font-family: 'Funnel Display';
+    font-size: 20px;
+    display: flex;
+    padding: 3px;
+    border-radius: 15px;
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    transform: translate(0, -50%);
+    overflow: hidden;
+    gap: 5px;
+    cursor: pointer;
+
+}
+
+span.numberOfProducts {
+    background-color: white;
+    color: black;
+    border-radius: 3px;
+
+}
+
+@media(max-width: 600px) {
+    .basketWidget {
+        top: 150%;
+        right: 5px;
+    }
+}
+
+.productsInBasketPresentation {
+    background-color: black;
+    color: white;
+    font-family: 'Funnel Display';
+    margin: 30px;
+
+}
+
+.productInBasketItem {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px dotted white;
+
+}
+
+.productImageThumbnail {
+    flex-basis: 10%;
+    width: 10%;
+
+}
+
+.productData {
+    flex-basis: 70%;
+    width: 70%;
+
+}
+
+.productDelete {
+    flex-basis: 20%;
+    width: 20%;
+    text-align: right;
+    padding: 10px;
+}
+
+.productDelete button {
+    text-align: center;
+    vertical-align: center;
+    background-color: white;
+    color: black;
+    border-radius: 50%;
+    padding: 5px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    font-weight: bold;
+    font-family: 'Funnel Display';
+}
+
+.productDelete button:hover {
+    background-color: gray;
+}
+
+.productImageThumbnail img {
+    width: 90%;
+    height: auto;
+}
+
+.amountPresentation {
+    margin-left: 30px;
+    margin-right: 30px;
+    text-align: right;
+}
+
+.amountPresentation button.order {
+    background-color: black;
+    color: white;
+    font-size: 24px;
+    border: none;
+    font-family: 'Funnel Display';
+    padding: 5px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.amountPresentation button.order:hover {
+    background-color: gray;
+}
+
+
+span.availableInBasket {
+    background-color: green;
+    color: white;
+    padding: 5px;
+    border-radius: 7px;
+    margin-top: 1px;
+    display: block;
+    width: 150px;
+    text-align: center;
+
+}
+
+span.outOfStockInBasket {
+    background-color: red;
+    color: white;
+    padding: 5px;
+    border-radius: 7px;
+    margin-top: 1px;
+    display: block;
+    width: 150px;
+    text-align: center;
+
+}
+
+@media(max-width: 600px) {
+    .productImageThumbnail {
+        flex-basis: 30%;
+        width: 30%;
+
+    }
+
+    .productData {
+        flex-basis: 50%;
+        width: 50%;
+
+    }
+
+    .productDelete {
+        flex-basis: 20%;
+        width: 20%;
+        text-align: right;
+        padding: 10px;
+    }
+}
+
+.orderInfo {
+    background-color: rgb(78, 200, 78);
+    color: white;
+    text-align: center;
+}
+
+.myOrdersItem {
+    background-color: black;
+    color: white;
+    margin: 10px;
+}
+
+.boughtProductsInOrder {
+    background-color: green;
+    color: white;
+    margin: 5px;
+    display: flex;
+}
+
+.productThumbnail {
+    flex-basis: 10%;
+}
+
+.productThumbnail img {
+    width: 100%;
+    height: auto;
+}
+
+.productInfoOrder {
+    flex-basis: 90%;
+}
+
+button.makeInvoice {
+    background-color: white;
+    color: black;
+    border: 1px solid transparent;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 3px;
+    font-family: 'Funnel Display';
+    font-weight: bold;
+}
+
+button.makeInvoice:hover {
+    background-color: gray;
+    color: black;
+
+}
+
+button.showInvoice {
+    background-color: white;
+    color: black;
+    border: 1px solid transparent;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 3px;
+    font-family: 'Funnel Display';
+    font-weight: bold;
+}
+
+button.showInvoice:hover {
+    background-color: gray;
+    color: black;
+
+}
+
+button.returnToInvoicesList {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.invoiceTemplate {
+    margin: 20px;
+    border: 1px solid black;
+}
+
+.sellerAndCustomer {
+    display: flex;
+    margin-top: 15px;
+}
+
+.sellerAndCustomer .seller {
+    flex-basis: 50%;
+}
+
+.sellerAndCustomer .customer {
+    flex-basis: 50%;
+}
+
+.wayOfPayment {
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.productItemAtInvoice {
+    display: flex;
+}
+
+.productThumbnailAtInvoice {
+    flex-basis: 10%;
+    background-color: red;
+}
+
+.productInfoAtInvoice {
+    flex-basis: 90%;
+    background-color: gray;
+
+}
+
+
+.productThumbnailAtInvoice img {
+    width: 100%;
+    height: auto;
 }

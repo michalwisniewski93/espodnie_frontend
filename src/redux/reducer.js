@@ -7,6 +7,18 @@ const initialState = {
     user: null,
     pass: null,
     favouritesId: null,
+    favouritesList: [],
+    boughtProductsId: null,
+    boughtProducts: [],
+    customerData: '',
+    invoicePresentationNumber: null,
+    invoicePresentationFirstLineOfCustomer: '',
+    invoicePresentationNipOfCustomer: '',
+    invoicePresentationPhoneNumberOfCustomer: '',
+    invoicePresentationEmailAddressOfCustomer: '',
+    invoicePresentationBoughtProducts: [],
+    invoicePresentationTotalAmount: null,
+    invoicePresentationDateOfIssue: '',
 }
 
 
@@ -29,6 +41,32 @@ function reducer(state=initialState, action){
             return {...state, pass: action.pass}
         case 'SET_FAVOURITES_ID':
             return {...state, favouritesId: action.favouritesId}
+        case 'ADD_TO_FAVOURITES_LIST':
+            return {...state, favouritesList: [...state.favouritesList, action.newFavourites]}
+        case 'ADD_TO_BOUGHT_PRODUCTS':
+            return {...state, boughtProducts: [...state.boughtProducts, action.boughtProducts]}
+        case 'SET_BOUGHT_PRODUCTS_ID':
+            return {...state, boughtProductsId: action.boughtProductsId}
+        case 'SET_CUSTOMER_DATA':
+            return {...state, customerData: action.customerData }
+        case 'RESET_BOUGHT_PRODUCTS':
+            return {...state, boughtProducts: []}
+        case 'SET_INVOICE_PRESENTATION_NUMBER':
+            return {...state, invoicePresentationNumber: action.invoicePresentationNumber}
+        case 'SET_INVOICE_FIRST_LINE_OF_CUSTOMER':
+            return {...state, invoicePresentationFirstLineOfCustomer: action.invoicePresentationFirstLineOfCustomer}
+        case 'SET_INVOICE_PRESENTATION_NIP':
+            return {...state, invoicePresentationNipOfCustomer: action.invoicePresentationNipOfCustomer}
+        case 'SET_INVOICE_PRESENTATION_PHONE_NUMBER':
+            return {...state, invoicePresentationPhoneNumberOfCustomer: action.invoicePresentationPhoneNumberOfCustomer}
+        case 'SET_INVOICE_PRESENTATION_EMAIL':
+            return {...state, invoicePresentationEmailAddressOfCustomer: action.invoicePresentationEmailAddressOfCustomer}
+        case 'SET_INVOICE_PRESENTATION_BOUGHT_PRODUCTS':
+            return {...state, invoicePresentationBoughtProducts: action.invoicePresentationBoughtProducts}
+        case 'SET_INVOICE_PRESENTATION_TOTAL_AMOUNT':
+            return {...state, invoicePresentationTotalAmount: action.invoicePresentationTotalAmount}
+        case 'SET_INVOICE_PRESENTATION_DATE_OF_ISSUE':
+            return {...state, invoicePresentationDateOfIssue: action.invoicePresentationDateOfIssue}
        
         default:
             return {...state}

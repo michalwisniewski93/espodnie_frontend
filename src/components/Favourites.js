@@ -44,6 +44,13 @@ const Favourites = () => {
 
     const id = useSelector(state => state.favouritesId)
 
+    
+    const boughtProductsFromStore = useSelector(state => state.boughtProducts)
+    
+    const addToBoughtProducts = (boughtProducts) => dispatch({type: 'ADD_TO_BOUGHT_PRODUCTS', boughtProducts})
+
+    const boughtProductsId = useSelector(state => state.boughtProductsId)
+
 
 useEffect(() => {
     if(activeCategory !== ''){
@@ -103,10 +110,32 @@ useEffect(() => {
 
 
 
-const handleBuyNow = () => {
+const handleBuyNow = (productname, imageurl, description, price, storepieces) => {
     if(isUserLogged === false){
     alert('Nie jesteś zalogowany, zaloguj się aby móc kupować na sklepie.')
+    return
     }
+    const addingObject = {
+        id: new Date(),
+        productname, 
+        imageurl,
+        description,
+        price,
+        storepieces
+    }
+
+    addToBoughtProducts(addingObject)
+
+
+    const boughtProducts = boughtProductsFromStore
+
+
+    const user = userLogged
+
+
+    axios.put(`http://localhost:5000/baskets/${boughtProductsId}`, {user, boughtProducts })
+    .then((response) => console.log('dodano poprawnie'))
+    .catch((err) => console.log('error updating baskets ' + err))
 }
 
 
@@ -117,6 +146,10 @@ const handleSiteClick = (sitename, content, url) => {
 
 const handleDisplayMainSite = () => {
     navigate('/')
+}
+
+const handleShowOrders = () => {
+    navigate('/my-orders')
 }
 
 
@@ -130,7 +163,7 @@ const filtredProducts = selectedCategory ? products.filter(product => product.ca
         <Header/>
         
         <section className="topButtons">
-            {isUserLogged? <div><span>Zalogowano jako: {userLogged}</span><button onClick={handleDisplayMainSite}>Strona główna</button><button>Zamówienia</button></div> : null }
+            {isUserLogged? <div><span>Zalogowano jako: {userLogged}</span><button onClick={handleDisplayMainSite}>Strona główna</button><button onClick={handleShowOrders}>Zamówienia</button></div> : null }
             <button onClick={handleLogIn}>{isUserLogged ? 'Wyloguj się' : 'Zaloguj się'}</button><button onClick={handleNewAccount}>Załóż Nowe konto</button><button onClick={handleAdmin}>Panel admina</button>
         </section>
         {visibleLoginForm && !isUserLogged ? <LogInUser/> : null}
@@ -142,7 +175,7 @@ const filtredProducts = selectedCategory ? products.filter(product => product.ca
         
 
         {favourites.filter(fv => fv._id === id).map(favourite => 
-         favourite.favourites.map((fav, index) =>  <div className="productCard" key={index}><h2 className="productName">{fav.productname}</h2><img src={`http://localhost:5000${fav.imageurl}`} alt={fav.imageurl}/><h6 className="productDescription">{fav.description}</h6><h6 className="productPrice">{fav.price} PLN</h6><h6 className="productStorePieces">{fav.storepieces > 0 ? <span className="available">Dostępny</span> : <span className="outOfStock">Wyprzedany</span>}</h6><button className="buyNow" onClick={handleBuyNow}>Kup teraz</button></div>)
+         favourite.favourites.map((fav, index) =>  <div className="productCard" key={index}><h2 className="productName">{fav.productname}</h2><img src={`http://localhost:5000${fav.imageurl}`} alt={fav.imageurl}/><h6 className="productDescription">{fav.description}</h6><h6 className="productPrice">{fav.price} PLN</h6><h6 className="productStorePieces">{fav.storepieces > 0 ? <span className="available">Dostępny</span> : <span className="outOfStock">Wyprzedany</span>}</h6><button className="buyNow" onClick={() => handleBuyNow(fav.productname, fav.imageurl, fav.description, fav.price, fav.storepieces)}>Kup teraz</button></div>)
         )}
 
        

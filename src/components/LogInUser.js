@@ -34,6 +34,8 @@ const setPasswordInStore = (pass) => dispatch({type: 'SET_PASSWORD_IN_STORE', pa
 
 
 const setFavouritesId = (favouritesId) => dispatch({type: 'SET_FAVOURITES_ID', favouritesId})
+const setBoughtProductsId = (boughtProductsId) => dispatch({type: 'SET_BOUGHT_PRODUCTS_ID', boughtProductsId})
+const setCustomerData = (customerData) => dispatch({type: 'SET_CUSTOMER_DATA', customerData})
 
 const handleLogIn = (e) => {
     e.preventDefault()
@@ -48,6 +50,30 @@ const handleLogIn = (e) => {
         setUserInStore(login)
         setSaveUser(login)
         setPasswordInStore(password)
+
+        const object = {
+            id: found._id,
+            name: found.name,
+            surname: found.surname,
+            street: found.street,
+            postcode: found.postcode, 
+            city: found.city, 
+            companyname: found.companyname, 
+            companystreet: found.companystreet,
+            companypostcode: found.companypostcode, 
+            companycity: found.companycity,
+            email: found.email, 
+            invoice: found.invoice, 
+            login: found.login, 
+            newsletter: found.newsletter, 
+            password: found.password, 
+            phonenumber: found.phonenumber,
+            regulations: found.regulations, 
+            companynip: found.companynip, 
+            companyregon: found.companyregon,
+         }
+        setCustomerData(object)
+        
 
 
         axios.get('http://localhost:5000/favourites')
@@ -69,8 +95,28 @@ const handleLogIn = (e) => {
   })
   .catch((err) => console.log('error fetching favourites, error:' + err));
 
-  console.log('documentId: ')
-  console.log(documentId)
+
+
+  axios.get('http://localhost:5000/baskets')
+  .then(response => {
+    const allBaskets = response.data;
+   
+    const filteredBaskets = allBaskets.filter(b => b.user === login);
+   
+
+   
+
+    const searchingId = filteredBaskets[0]._id;
+   
+    const boughtProductsId = searchingId
+    setBoughtProductsId(boughtProductsId)
+    
+  
+
+  })
+  .catch((err) => console.log('error fetching baskets, error:' + err));
+
+ 
 
 
 
