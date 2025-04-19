@@ -64,7 +64,8 @@ const [invoices, setInvoices] = useState([])
     <h4>Nr telefonu: {order.customerphonenumber}</h4>
     <h4>NIP: {order.customercompanynip}</h4>
     <h4>REGON: {order.customercompanyregon}</h4>
-    <button className="makeInvoice" onClick={() => handleMakeInvoice(order.customername, order.customersurname, order.customercompanyname, order.customercompanystreet, order.customercompanypostcode, order.customercompanycity, order.customeremail, order.customerphonenumber, order.customercompanynip, order.customercompanyregon, order.boughtProducts, order.date, order.amount )}>Wystaw fakturę</button>
+    {order.customerinvoice? (<button className="makeInvoice" onClick={() => handleMakeInvoice(order.customername, order.customersurname, order.customercompanyname, order.customercompanystreet, order.customercompanypostcode, order.customercompanycity, order.customeremail, order.customerphonenumber, order.customercompanynip, order.customercompanyregon, order.boughtProducts, order.date, order.amount )}>Wystaw fakturę</button> ) : 'Użytkownik nie chciał faktury.'}
+    
 
     {/* Drugi map - lista produktów z tego zamówienia */}
     {order.boughtProducts.map(bp => (

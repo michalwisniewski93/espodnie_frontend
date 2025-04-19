@@ -143,12 +143,17 @@ const handleSubmit = (e) => {
 }
 
 
+const handleGoToHome = () => {
+    navigate('/')
+}
+
+
     return(
     <div className="app">
     
         <Header/>
         <section className="topButtons">
-            <button>Zaloguj się</button><button onClick={handleAdmin}>Panel admina</button>
+            <button onClick={handleGoToHome}>Przejdź do strony głównej aby się zalogować</button><button onClick={handleAdmin}>Panel admina</button>
         </section>
         <h1>Załóż nowe konto</h1>
         <form className="setNewAccount" onSubmit={handleSubmit}>
